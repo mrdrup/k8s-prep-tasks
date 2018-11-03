@@ -1,0 +1,56 @@
+# k8s-prep-tasks
+- [ ] Create a node that has a SSD and label it as such. 
+- [ ] Create a pod that is only scheduled on SSD nodes.
+- [ ] Create 2 pod definitions: the second pod should be scheduled to run anywhere the first pod is running - 2nd pod runs alongside the first pod.
+- [ ] Create a deployment running nginx version 1.12.2 that will run in 2 pods
+    - [ ] Scale this to 4 pods.
+    - [ ] Scale it back to 2 pods.
+    - [ ] Upgrade this to 1.13.8
+    - [ ] Check the status of the upgrade
+    - [ ] How do you do this in a way that you can see history of what happened?
+    - [ ] Undo the upgrade
+- [ ] Create a service that uses a scratch disk.
+    - [ ] Change the service to mount a disk from the host.
+    - [ ] Change the service to mount a persistent volume.
+- [ ] Create a pod that has a liveness check
+- [ ] Create a service that manually requires endpoint creation - and create that too
+- [ ] Create a daemon set
+    - [ ] Change the update strategy to do a rolling update but delaying 30 seconds between pod updates
+- [ ] Create a static pod
+- [ ] Create a busybox container without a manifest. Then edit the manifest.
+- [ ] Create a pod that uses secrets
+    - [ ] Pull secrets from environment variables
+    - [ ] Pull secrets from a volume
+    - [ ] Dump the secrets out via kubectl to show it worked
+- [ ] Create a job that runs every 3 minutes and prints out the current time.
+- [ ] Create a job that runs 20 times, 5 containers at a time, and prints "Hello parallel world"
+- [ ] Create a service that uses an external load balancer and points to a 3 pod cluster running nginx.
+- [ ] Create a horizontal autoscaling group that starts with 2 pods and scales when CPU usage is over 50%.
+- [ ] Create a custom resource definition
+    - [ ] Display it in the API with curl
+- [ ] Create a networking policy such that only pods with the label access=granted can talk to it.
+    - [ ] Create an nginx pod and attach this policy to it. 
+    - [ ] Create a busybox pod and attempt to talk to nginx - should be blocked
+    - [ ] Attach the label to busybox and try again - should be allowed
+- [ ] Create a service that references an externalname.
+    - [ ] Test that this works from another pod
+- [ ] Create a pod that runs all processes as user 1000.
+- [ ] Create a namespace
+    - [ ] Run a pod in the new namespace
+    - [ ] Put memory limits on the namespace
+    - [ ] Limit pods to 2 persistent volumes in this namespace
+- [ ] Write an ingress rule that redirects calls to /foo to one service and to /bar to another
+- [ ] Write a service that exposes nginx on a nodeport
+    - [ ] Change it to use a cluster port
+    - [ ] Scale the service
+    - [ ] Change it to use an external IP
+    - [ ] Change it to use a load balancer
+- [ ] Deploy nginx with 3 replicas and then expose a port
+    - [ ] Use port forwarding to talk to a specific port
+- [ ] Make an API call using CURL and proper certs
+- [ ] Upgrade a cluster with kubeadm
+- [ ] Get logs for a pod
+- [ ] Deploy a pod with the wrong image name (like --image=nginy) and find the error message.
+- [ ] Get logs for kubectl
+- [ ] Get logs for the scheduler
+- [ ] Restart kubelet
